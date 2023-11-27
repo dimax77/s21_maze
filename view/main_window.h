@@ -10,19 +10,13 @@
 namespace s21 {
 class MainWindow : public QMainWindow {
   Q_OBJECT
+  friend class GUI;
+
 public:
   explicit MainWindow(QWidget *parent = nullptr);
 
 private:
-  void SetupIU();
-
-  MazeView *maze_view_;
-  QGridLayout *main_layout_;
-  QPushButton *generate_btn_;
-  QPushButton *load_btn_;
-  QPushButton *save_btn_;
-
-signals:
+  void SetupUI();
 };
 
 } // namespace s21
