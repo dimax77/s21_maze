@@ -3,6 +3,8 @@
 
 using namespace s21;
 
+Observable::~Observable() {}
+
 void Observable::Notify(int state_id) {
   for (auto observer : obs_) {
     observer->Update(state_id);

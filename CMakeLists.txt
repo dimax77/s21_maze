@@ -18,8 +18,11 @@ set(PROJECT_SOURCES main.cpp
     view/main_window.h
     view/main_window.cc
     view/maze_view.h view/maze_view.cc
-    model/observer.h model/observer.cpp
-    view/gui.h view/gui.cc)
+    model/observer.h model/observer.cc
+    view/gui.h view/gui.cc
+    controller/controller.h controller/controller.cc
+    model/maze_state.h model/maze_state.cc
+    model/maze_model.h model/maze_model.cc)
 
 add_executable(maze
    ${PROJECT_SOURCES}
