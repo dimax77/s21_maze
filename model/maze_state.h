@@ -12,7 +12,7 @@ class Controller;
 } // namespace s21
 
 namespace s21 {
-class MazeState : public Observable, std::enable_shared_from_this<MazeModel> {
+class MazeState : public Observable, std::enable_shared_from_this<MazeState> {
 
   friend MazeModel;
   friend Controller;
@@ -20,7 +20,6 @@ class MazeState : public Observable, std::enable_shared_from_this<MazeModel> {
 public:
   MazeState();
   virtual ~MazeState();
-  //    void Notify(int state_id) override;
 
 protected:
   QVector<QVector<int>> value_;
