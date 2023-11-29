@@ -18,6 +18,7 @@ public:
 
 private:
   void SetupUI();
+  void OnLoad();
 
   void HandleGenerateMaze();
   void HandleLoadMaze();

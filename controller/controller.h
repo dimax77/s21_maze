@@ -1,6 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include "memory"
 #include "model/maze_model.h"
 #include "model/maze_state.h"
 #include "model/observer.h"
@@ -18,7 +19,6 @@ class Controller : public Observer {
 
 public:
   Controller();
-  ~Controller();
   void Update(int state_id) override;
   void GenerateMaze(int height, int width);
 
@@ -26,9 +26,10 @@ protected:
   void SetMazeView(MazeView *maze_view);
 
 private:
+  std::unique_ptr<MazeModel> model_;
+  std::shared_ptr<MazeState> state_;
+
   MazeView *view_;
-  MazeModel *model_;
-  MazeState *state_;
 };
 } // namespace s21
 

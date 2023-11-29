@@ -10,6 +10,7 @@ MainWindow::MainWindow(Controller *controller, QWidget *parent)
     : QMainWindow{parent}, controller_(controller) {
   SetupUI();
   controller->SetMazeView(maze_scene_);
+  OnLoad();
 }
 
 void MainWindow::SetupUI() {
@@ -33,6 +34,8 @@ void MainWindow::SetupUI() {
   //  &MainWindow::HandleLoadMaze); connect(save_btn_, &QPushButton::clicked,
   //  this, &MainWindow::HandleSaveMaze);
 }
+
+void MainWindow::OnLoad() { controller_->GenerateMaze(10, 10); }
 
 void MainWindow::HandleGenerateMaze() {
   std::cout << "Generate maze button pressed\n";

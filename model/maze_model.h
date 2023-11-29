@@ -3,6 +3,7 @@
 
 #include "controller/controller.h"
 #include "maze_state.h"
+#include "memory"
 
 namespace s21 {
 class MazeModel {
@@ -10,13 +11,13 @@ class MazeModel {
   friend Controller;
 
 public:
-  explicit MazeModel(MazeState *maze_state);
+  explicit MazeModel(std::shared_ptr<MazeState> state);
 
 protected:
   void GenerateMaze(int height, int width);
 
 private:
-  MazeState *maze_state_;
+  std::shared_ptr<MazeState> state_;
 };
 
 } // namespace s21

@@ -1,9 +1,10 @@
-#ifndef MAZESTATE_H
-#define MAZESTATE_H
+#ifndef MAZE_STATE_H
+#define MAZE_STATE_H
 
 //#include "maze_model.h"
 #include "observer.h"
 #include <QVector>
+#include <memory>
 
 namespace s21 {
 class MazeModel;
@@ -11,7 +12,7 @@ class Controller;
 } // namespace s21
 
 namespace s21 {
-class MazeState : public Observable {
+class MazeState : public Observable, std::enable_shared_from_this<MazeModel> {
 
   friend MazeModel;
   friend Controller;
@@ -19,14 +20,14 @@ class MazeState : public Observable {
 public:
   MazeState();
   virtual ~MazeState();
-  //  void Notify(int state_id) override;
+  //    void Notify(int state_id) override;
 
 protected:
-  QVector<QVector<int>> maze_state_;
+  QVector<QVector<int>> value_;
 
 private:
   int state_id_;
 };
 } // namespace s21
 
-#endif // MAZESTATE_H
+#endif // MAZE_STATE_H
