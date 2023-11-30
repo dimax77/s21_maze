@@ -27,7 +27,9 @@ void GUI::Create(QWidget *parent) {
   QLabel *stat_info_lbl = new QLabel("Statistics will be placed here", parent);
 
   height_set_spin_ = new QSpinBox(parent);
+  height_set_spin_->setRange(0, 500);
   width_set_spin_ = new QSpinBox(parent);
+  width_set_spin_->setRange(0, 500);
 
   load_btn_ = new QPushButton("Load Maze", parent);
   save_btn_ = new QPushButton("Save Maze", parent);
@@ -49,9 +51,11 @@ void GUI::Create(QWidget *parent) {
   QGridLayout *maze_layout = new QGridLayout(maze_container);
 
   maze_scene_ = new MazeView(maze_container);
+  maze_scene_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
   maze_layout->addWidget(maze_scene_);
   maze_container->setMinimumSize(500, 500);
+  maze_layout->setContentsMargins(0, 0, 0, 0);
 
   main_layout->addWidget(maze_container, 1, 1);
   main_layout->addWidget(control_container, 1, 2);
