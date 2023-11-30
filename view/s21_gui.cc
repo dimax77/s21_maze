@@ -1,5 +1,5 @@
-#include "gui.h"
-#include "maze_view.h"
+#include "s21_gui.h"
+#include "s21_maze_view.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QGridLayout>
@@ -27,9 +27,9 @@ void GUI::Create(QWidget *parent) {
   QLabel *stat_info_lbl = new QLabel("Statistics will be placed here", parent);
 
   height_set_spin_ = new QSpinBox(parent);
-  height_set_spin_->setRange(0, 500);
+  height_set_spin_->setRange(0, 50);
   width_set_spin_ = new QSpinBox(parent);
-  width_set_spin_->setRange(0, 500);
+  width_set_spin_->setRange(0, 50);
 
   load_btn_ = new QPushButton("Load Maze", parent);
   save_btn_ = new QPushButton("Save Maze", parent);

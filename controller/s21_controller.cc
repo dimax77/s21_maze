@@ -1,6 +1,6 @@
-#include "controller.h"
+#include "s21_controller.h"
 #include "memory"
-#include "model/maze_state.h"
+#include "model/s21_maze_state.h"
 
 using namespace s21;
 

@@ -1,8 +1,8 @@
-#include "main_window.h"
-#include "controller/controller.h"
-#include "gui.h"
+#include "s21_main_window.h"
+#include "controller/s21_controller.h"
 #include "iostream"
-#include "maze_view.h"
+#include "s21_gui.h"
+#include "s21_maze_view.h"
 
 using namespace s21;
 

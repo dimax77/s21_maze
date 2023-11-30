@@ -1,5 +1,5 @@
-#include "./view/main_window.h"
-#include "controller/controller.h"
+#include "./view/s21_main_window.h"
+#include "controller/s21_controller.h"
 #include <QApplication>
 
 int main(int argc, char *argv[]) {

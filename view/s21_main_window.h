@@ -1,8 +1,8 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
-#include "controller/controller.h"
-#include "maze_view.h"
+#include "controller/s21_controller.h"
+#include "s21_maze_view.h"
 #include <QGraphicsScene>
 #include <QGridLayout>
 #include <QMainWindow>

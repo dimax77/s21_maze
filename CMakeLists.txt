@@ -15,14 +15,14 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 set(PROJECT_SOURCES main.cpp
-    view/main_window.h
-    view/main_window.cc
-    view/maze_view.h view/maze_view.cc
-    model/observer.h model/observer.cc
-    view/gui.h view/gui.cc
-    controller/controller.h controller/controller.cc
-    model/maze_state.h model/maze_state.cc
-    model/maze_model.h model/maze_model.cc)
+    view/s21_main_window.h
+    view/s21_main_window.cc
+    view/s21_maze_view.h view/s21_maze_view.cc
+    model/s21_observer.h model/s21_observer.cc
+    view/s21_gui.h view/s21_gui.cc
+    controller/s21_controller.h controller/s21_controller.cc
+    model/s21_maze_state.h model/s21_maze_state.cc
+    model/s21_maze_model.h model/s21_maze_model.cc)
 
 add_executable(maze
    ${PROJECT_SOURCES}

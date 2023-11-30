@@ -1,4 +1,4 @@
-#include "maze_view.h"
+#include "s21_maze_view.h"
 #include <QGraphicsItem>
 #include <QPen>
 

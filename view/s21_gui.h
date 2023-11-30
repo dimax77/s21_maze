@@ -1,6 +1,6 @@
 #ifndef GUI_H
 #define GUI_H
-#include "maze_view.h"
+#include "s21_maze_view.h"
 #include <QGraphicsScene>
 #include <QPushButton>
 #include <QSpinBox>

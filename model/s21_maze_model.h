@@ -1,9 +1,9 @@
 #ifndef MAZE_MODEL_H
 #define MAZE_MODEL_H
 
-#include "controller/controller.h"
-#include "maze_state.h"
+#include "controller/s21_controller.h"
 #include "memory"
+#include "s21_maze_state.h"
 
 namespace s21 {
 class MazeModel {

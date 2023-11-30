@@ -1,7 +1,7 @@
-#include "maze_model.h"
+#include "s21_maze_model.h"
 #include "iostream"
-#include "maze_state.h"
 #include "memory"
+#include "s21_maze_state.h"
 
 using namespace s21;
 

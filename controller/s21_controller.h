@@ -2,10 +2,10 @@
 #define CONTROLLER_H
 
 #include "memory"
-#include "model/maze_model.h"
-#include "model/maze_state.h"
-#include "model/observer.h"
-#include "view/maze_view.h"
+#include "model/s21_maze_model.h"
+#include "model/s21_maze_state.h"
+#include "model/s21_observer.h"
+#include "view/s21_maze_view.h"
 
 namespace s21 {
 class MainWindow;

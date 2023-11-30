@@ -1,8 +1,7 @@
 #ifndef MAZE_STATE_H
 #define MAZE_STATE_H
 
-//#include "maze_model.h"
-#include "observer.h"
+#include "s21_observer.h"
 #include <QVector>
 #include <memory>
 

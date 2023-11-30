@@ -1,4 +1,4 @@
-#include "observer.h"
+#include "s21_observer.h"
 #include "algorithm"
 
 using namespace s21;

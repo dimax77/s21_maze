@@ -1,4 +1,4 @@
-#include "maze_state.h"
+#include "s21_maze_state.h"
 #include "iostream"
 
 using namespace s21;
