@@ -2,6 +2,7 @@
 #define MAZE_MODEL_H
 
 #include "controller/s21_controller.h"
+#include "dto/s21_dto.h"
 #include "memory"
 #include "s21_maze_state.h"
 
@@ -15,6 +16,7 @@ public:
 
 protected:
   void GenerateMaze(int height, int width);
+  void LoadMaze(QString &file_name);
 
 private:
   std::shared_ptr<MazeState> state_;

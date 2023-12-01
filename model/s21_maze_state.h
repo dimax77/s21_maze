@@ -1,6 +1,7 @@
 #ifndef MAZE_STATE_H
 #define MAZE_STATE_H
 
+#include "dto/s21_dto.h"
 #include "s21_observer.h"
 #include <QVector>
 #include <memory>
@@ -22,6 +23,7 @@ public:
 
 protected:
   QVector<QVector<int>> value_;
+  ModelDTO maze_;
 
 private:
   int state_id_;

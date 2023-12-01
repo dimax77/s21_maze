@@ -20,6 +20,7 @@ class Controller : public Observer {
 public:
   Controller();
   void Update(int state_id) override;
+  void LoadMaze(QString &file_name);
   void GenerateMaze(int height, int width);
 
 protected:

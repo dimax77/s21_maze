@@ -1,9 +1,11 @@
 #include "s21_main_window.h"
 #include "controller/s21_controller.h"
+#include "dto/s21_dto.h"
 #include "iostream"
 #include "s21_gui.h"
 #include "s21_maze_view.h"
-
+#include <QFileDialog>
+#include <QString>
 using namespace s21;
 
 MainWindow::MainWindow(Controller *controller, QWidget *parent)
@@ -30,15 +32,25 @@ void MainWindow::SetupUI() {
               &MainWindow::HandleGenerateMaze)) {
     std::cout << "Connection established\n";
   }
-  //  connect(load_btn_, &QPushButton::clicked, this,
-  //  &MainWindow::HandleLoadMaze); connect(save_btn_, &QPushButton::clicked,
-  //  this, &MainWindow::HandleSaveMaze);
+  connect(load_btn_, &QPushButton::clicked, this, &MainWindow::HandleLoadMaze);
+  // connect(save_btn_, &QPushButton::clicked,
+  //   this, &MainWindow::HandleSaveMaze);
 }
 
 void MainWindow::OnLoad() { controller_->GenerateMaze(10, 10); }
 
 void MainWindow::HandleGenerateMaze() {
-  std::cout << "Generate maze button pressed\n";
-  controller_->GenerateMaze(GUI::GetHeightSpin()->value(),
-                            GUI::GetWidthSpin()->value());
+  if (GUI::GetHeightSpin()->value() > 0 && GUI::GetWidthSpin()->value() > 0) {
+    std::cout << "Generate maze button pressed\n";
+    controller_->GenerateMaze(GUI::GetHeightSpin()->value(),
+                              GUI::GetWidthSpin()->value());
+  }
+}
+
+void MainWindow::HandleLoadMaze() {
+  QString file_path = QFileDialog::getOpenFileName(
+      this, tr("Open Maze File"), "", tr("Maze Files (*.s21_maze)"));
+  if (!file_path.isEmpty()) {
+    controller_->LoadMaze(file_path);
+  }
 }

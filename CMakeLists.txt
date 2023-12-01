@@ -22,7 +22,10 @@ set(PROJECT_SOURCES main.cpp
     view/s21_gui.h view/s21_gui.cc
     controller/s21_controller.h controller/s21_controller.cc
     model/s21_maze_state.h model/s21_maze_state.cc
-    model/s21_maze_model.h model/s21_maze_model.cc)
+    model/s21_maze_model.h model/s21_maze_model.cc
+    dto/s21_dto.h
+    model/s21_io.h model/s21_io.cc
+    adapter/s21_adapter.h adapter/s21_adapter.cc)
 
 add_executable(maze
    ${PROJECT_SOURCES}
