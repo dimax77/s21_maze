@@ -16,7 +16,7 @@ ViewDTO Adapter::ConvertForView(ModelDTO &maze) {
     for (int c = 0; c < cols; ++c) {
       if (maze[r][c].right_wall)
         r_w[r][c] = true;
-      if (maze[r][c].bottom_wall)
+      if (maze[r][c].bottom_line)
         b_w[r][c] = true;
     }
   }

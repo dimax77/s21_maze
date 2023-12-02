@@ -37,7 +37,7 @@ ModelDTO IO::LoadMaze(QString &file_name) {
       for (int col = 0; col < cols; ++col) {
         int value;
         file >> value;
-        maze[row][col].bottom_wall = (value == 1);
+        maze[row][col].bottom_line = (value == 1);
       }
 
   } catch (std::exception &e) {

@@ -25,7 +25,8 @@ set(PROJECT_SOURCES main.cpp
     model/s21_maze_model.h model/s21_maze_model.cc
     dto/s21_dto.h
     model/s21_io.h model/s21_io.cc
-    adapter/s21_adapter.h adapter/s21_adapter.cc)
+    adapter/s21_adapter.h adapter/s21_adapter.cc
+    model/s21_ellers_algorithm.h model/s21_ellers_algorithm.cc)
 
 add_executable(maze
    ${PROJECT_SOURCES}
