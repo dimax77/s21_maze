@@ -60,20 +60,19 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
     for (int col = 0; col < width; ++col) { // setting bottom
       if (row == height - 1) {
         tmp[col].bottom_line = true;
-        //        if (col < width - 2) {
-        //          if (tmp[col].right_wall &&
-        //              (tmp[col + 1].cell_class != tmp[col].cell_class)) {
-        //            tmp[col].right_wall = false;
-        //            if (col < width - 2) {
-        //              if (tmp[col + 1].cell_class == tmp[col + 2].cell_class
-        //              &&
-        //                  (tmp[col + 1].right_wall)) {
-        //                tmp[col + 2].cell_class = tmp[col].cell_class;
-        //              }
-        //            }
-        //            tmp[col + 1].cell_class = tmp[col].cell_class;
-        //          }
-        //        }
+        if (col < width - 2) {
+          if (tmp[col].right_wall &&
+              (tmp[col + 1].cell_class != tmp[col].cell_class)) {
+            tmp[col].right_wall = false;
+            if (col < width - 2) {
+              if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
+                  (tmp[col + 1].right_wall)) {
+                tmp[col + 2].cell_class = tmp[col].cell_class;
+              }
+            }
+            tmp[col + 1].cell_class = tmp[col].cell_class;
+          }
+        }
       } else {
         if (decisions[idx++]) { // decided put the bottom
           int count = col + 1;
@@ -93,7 +92,23 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
         }
       }
     }
-
+    if (row == height - 1) {
+      for (int col = 0; col < width; ++col) {
+        if (col < width - 2) {
+          if (tmp[col].right_wall &&
+              (tmp[col + 1].cell_class != tmp[col].cell_class)) {
+            tmp[col].right_wall = false;
+            if (col < width - 2) {
+              if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
+                  (tmp[col + 1].right_wall)) {
+                tmp[col + 2].cell_class = tmp[col].cell_class;
+              }
+            }
+            tmp[col + 1].cell_class = tmp[col].cell_class;
+          }
+        }
+      }
+    }
     maze[row] = tmp;
   }
   return maze;
