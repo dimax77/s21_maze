@@ -2,7 +2,6 @@
 #include "dto/s21_dto.h"
 #include <QVector>
 #include <fstream>
-#include <iostream>
 
 using namespace s21;
 
@@ -17,7 +16,6 @@ ModelDTO IO::LoadMaze(QString &file_name) {
 
   try {
     file >> rows >> cols;
-    std::cout << "Rows: " << rows << " Cols: " << cols << std::endl;
     if (rows <= 0 || cols <= 0) {
       if (file.is_open())
         file.close();

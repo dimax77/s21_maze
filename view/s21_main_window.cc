@@ -30,7 +30,6 @@ void MainWindow::SetupUI() {
 
   if (connect(generate_btn_, &QPushButton::clicked, this,
               &MainWindow::HandleGenerateMaze)) {
-    std::cout << "Connection established\n";
   }
   connect(load_btn_, &QPushButton::clicked, this, &MainWindow::HandleLoadMaze);
   // connect(save_btn_, &QPushButton::clicked,
@@ -41,7 +40,6 @@ void MainWindow::OnLoad() { controller_->GenerateMaze(10, 10); }
 
 void MainWindow::HandleGenerateMaze() {
   if (GUI::GetHeightSpin()->value() > 0 && GUI::GetWidthSpin()->value() > 0) {
-    std::cout << "Generate maze button pressed\n";
     controller_->GenerateMaze(GUI::GetHeightSpin()->value(),
                               GUI::GetWidthSpin()->value());
   }

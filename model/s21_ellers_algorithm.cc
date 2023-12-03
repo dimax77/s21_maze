@@ -1,6 +1,5 @@
 #include "s21_ellers_algorithm.h"
 #include "dto/s21_dto.h"
-#include "iostream"
 #include "random"
 #include <QVector>
 
@@ -15,9 +14,7 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
 
   for (auto &d : decisions) {
     d = dis(mt); // create decision's vector: random sequence of 1 and 0.
-    std::cout << d;
   }
-  std::cout << std::endl;
 
   QVector<QVector<Cell>> maze(height,
                               QVector<Cell>(width, Cell())); // result maze
@@ -95,12 +92,14 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
 
     if (row == height - 1) { // process last row
       for (int col = 0; col < width; ++col) {
-        if (col < width - 2) {
+        if (col < width - 1) {
           if (tmp[col].right_wall &&
               (tmp[col + 1].cell_class != tmp[col].cell_class)) {
-            if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
-                (tmp[col + 1].right_wall)) {
-              tmp[col + 2].cell_class = tmp[col].cell_class;
+            if (col < width - 2) {
+              if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
+                  (tmp[col + 1].right_wall)) {
+                tmp[col + 2].cell_class = tmp[col].cell_class;
+              }
             }
             tmp[col].right_wall = false;
             tmp[col + 1].cell_class = tmp[col].cell_class;
