@@ -16,7 +16,7 @@ public:
   MazeView(QWidget *parent = nullptr);
 
 protected:
-  void Draw(QVector<QVector<int>> &maze);
+  void Draw(QVector<QVector<int>> &cave);
   void Draw(ViewDTO maze);
   QGraphicsScene scene_;
 };

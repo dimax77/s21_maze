@@ -9,7 +9,6 @@ public:
   static ModelDTO CreateMaze(int height, int width);
 
 private:
-  //  static int cell_class;
   static void Classify(QVector<Cell> &row, int &cell_class);
 };
 

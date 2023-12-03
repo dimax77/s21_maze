@@ -11,17 +11,17 @@ MazeView::MazeView(QWidget *parent) : QGraphicsView(parent) {
   setFixedSize(scene_width + 10, scene_height + 10);
 }
 
-void MazeView::Draw(QVector<QVector<int>> &maze) {
+void MazeView::Draw(QVector<QVector<int>> &cave) {
 
-  double cell_height = scene_height / maze.size();
-  double cell_width = scene_width / maze[0].size();
+  double cell_height = scene_height / cave.size();
+  double cell_width = scene_width / cave[0].size();
   scene_.clear();
 
   QPen wall_pen(Qt::green, 2);
 
-  for (int row = 0; row < maze.size(); ++row) {
-    for (int col = 0; col < maze[row].size(); ++col) {
-      if (maze[row][col] == 1) {
+  for (int row = 0; row < cave.size(); ++row) {
+    for (int col = 0; col < cave[row].size(); ++col) {
+      if (cave[row][col] == 1) {
         QGraphicsRectItem *wall = new QGraphicsRectItem(
             col * cell_width, row * cell_height, cell_width, cell_height);
         wall->setPen(wall_pen);

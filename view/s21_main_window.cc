@@ -12,7 +12,7 @@ MainWindow::MainWindow(Controller *controller, QWidget *parent)
     : QMainWindow{parent}, controller_(controller) {
   SetupUI();
   controller->SetMazeView(maze_scene_);
-  //  OnLoad();
+  OnLoad();
 }
 
 void MainWindow::SetupUI() {

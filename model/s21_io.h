@@ -6,7 +6,6 @@
 namespace s21 {
 class IO {
 public:
-  //    s21_io();
   static ModelDTO LoadMaze(QString &file_name);
   static ModelDTO SaveMaze(QString &file_name);
 };
