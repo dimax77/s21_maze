@@ -15,12 +15,16 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
 
   for (auto &d : decisions) {
     d = dis(mt); // create decision's vector: random sequence of 1 and 0.
+    std::cout << d;
   }
+  std::cout << std::endl;
 
   QVector<QVector<Cell>> maze(height,
                               QVector<Cell>(width, Cell())); // result maze
 
   int idx = 0;
+
+  int cell_class = 1;
 
   for (int row = 0; row < height; ++row) {
 
@@ -37,7 +41,7 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
       }
     }
 
-    Classify(tmp);
+    Classify(tmp, cell_class);
 
     for (int col = 0; col < width; ++col) { // setting right walls
 
@@ -60,30 +64,26 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
     for (int col = 0; col < width; ++col) { // setting bottom
       if (row == height - 1) {
         tmp[col].bottom_line = true;
-        if (col < width - 2) {
-          if (tmp[col].right_wall &&
-              (tmp[col + 1].cell_class != tmp[col].cell_class)) {
-            tmp[col].right_wall = false;
-            if (col < width - 2) {
-              if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
-                  (tmp[col + 1].right_wall)) {
-                tmp[col + 2].cell_class = tmp[col].cell_class;
-              }
-            }
-            tmp[col + 1].cell_class = tmp[col].cell_class;
-          }
-        }
       } else {
         if (decisions[idx++]) { // decided put the bottom
           int count = col + 1;
           int bottoms = tmp[col].bottom_line;
-          int elements = 0;
+          int elements = 1;
           if (count < width) {
             while (tmp[count].cell_class == tmp[col].cell_class) {
               bottoms += tmp[count++].bottom_line;
               ++elements;
               if (count == width)
                 break;
+            }
+            count = col - 1;
+            if (count >= 0) {
+              while (tmp[count].cell_class == tmp[col].cell_class) {
+                bottoms += tmp[count--].bottom_line;
+                ++elements;
+                if (count < 0)
+                  break;
+              }
             }
           }
           if (elements - bottoms > 1) {
@@ -92,18 +92,17 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
         }
       }
     }
-    if (row == height - 1) {
+
+    if (row == height - 1) { // process last row
       for (int col = 0; col < width; ++col) {
         if (col < width - 2) {
           if (tmp[col].right_wall &&
               (tmp[col + 1].cell_class != tmp[col].cell_class)) {
-            tmp[col].right_wall = false;
-            if (col < width - 2) {
-              if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
-                  (tmp[col + 1].right_wall)) {
-                tmp[col + 2].cell_class = tmp[col].cell_class;
-              }
+            if (tmp[col + 1].cell_class == tmp[col + 2].cell_class &&
+                (tmp[col + 1].right_wall)) {
+              tmp[col + 2].cell_class = tmp[col].cell_class;
             }
+            tmp[col].right_wall = false;
             tmp[col + 1].cell_class = tmp[col].cell_class;
           }
         }
@@ -114,8 +113,7 @@ ModelDTO EllersAlgorithm::CreateMaze(int height, int width) {
   return maze;
 }
 
-void EllersAlgorithm::Classify(QVector<Cell> &row) {
-  int cell_class = 1;
+void EllersAlgorithm::Classify(QVector<Cell> &row, int &cell_class) {
   for (auto &el : row) {
     if (!el.cell_class)
       el.cell_class = cell_class++;

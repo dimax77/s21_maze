@@ -7,7 +7,10 @@ namespace s21 {
 class EllersAlgorithm {
 public:
   static ModelDTO CreateMaze(int height, int width);
-  static void Classify(QVector<Cell> &row);
+
+private:
+  //  static int cell_class;
+  static void Classify(QVector<Cell> &row, int &cell_class);
 };
 
 } // namespace s21
